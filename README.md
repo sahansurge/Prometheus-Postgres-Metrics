@@ -29,6 +29,8 @@ Then we set up the Prometheus monitoring
 kubectl apply -n example -f postgresql.yaml
 ```
 
+Port-forward the example-minimal-cluster-0 to port 9187 and see if the metrics are available.
+
 Now port-forward prometheus and access Prometheus http://localhost:9090/ in status go to targets and see the podmonitors there, the work is done.
 
 If you face an issue with the pods not showing in the target then we have to edit the podmonitor.yaml and apply with a small change. We have to add "labels" under metadata and add "release: {kube-prom-stack release name}" for example here my kube-prom-stack release name was "prom-stack" so we edit the podmonitors.yaml and apply with the small change like this and apply.
